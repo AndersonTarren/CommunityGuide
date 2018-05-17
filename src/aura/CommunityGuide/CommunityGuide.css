@@ -1,0 +1,26 @@
+.THIS.hide {
+    display:none;
+}
+
+.THIS .infoContainer{
+    position: absolute;
+    z-index: 100;
+}
+
+.THIS .infoContainer .bold{
+    font-weight: bold;
+}
+
+.THIS .infoContainer .white-border-top{
+    border-top: 1px solid #33495d;
+}
+
+.THIS .infoContainer .steps{
+    color: #cbe1ef;
+}
+
+.THIS .infoContainer .pointer{
+    text-decoration: none;
+    color: #FFF;
+    cursor:pointer;
+}

@@ -1,0 +1,39 @@
+<aura:component description="CommunityGuide" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="data" type="Object[]" />
+    <aura:attribute name="guideData" type="String" />
+    <aura:attribute name="step" type="Integer" default="0"/>
+    <aura:attribute name="disp" type="Object" />
+    <aura:attribute name="dispClass" type="String" default="hide" />
+    <aura:attribute name="flagClass" type="String" default="" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="{!v.dispClass}">
+        <!-- flyout -->
+        <div id="theFly" class="{!'slds-grid infoContainer slds-popover_tooltip slds-nubbin_' + v.flagClass}" aura:id="theFly">
+            <div class="slds-popover__body">
+                <div class="slds-grid">
+                    <div class="slds-size--3-of-4 bold slds-p-top--medium slds-p-bottom--medium">
+                            {!v.disp.subject}
+                    </div>
+                    <div class="slds-size--1-of-4 slds-text-align--right pointer" onclick="{!c.closeFly}">
+                        <lightning:icon iconName="utility:close" size="xx-small" />
+                    </div>
+                </div>
+                <div class="slds-size--1-of-1 slds-p-top--medium slds-p-bottom--medium white-border-top">
+                        {!v.disp.body}
+                </div>
+                <div class="slds-size--1-of-1 white-border-top slds-p-top--medium slds-p-bottom--medium">
+                    <div class="slds-grid slds-grid--align-spread">
+                        <div class="slds-size--1-of-2 steps">
+                            Step {!v.step + 1} of {!v.data.length}
+                        </div>
+                        <div class="slds-size--1-of-2 bold slds-text-align--right pointer">
+                            <div onclick="{!c.didClick}" >Continue</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>
